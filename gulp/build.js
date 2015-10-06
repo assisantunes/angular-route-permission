@@ -12,13 +12,15 @@ var $ = require('gulp-load-plugins')({
 
 gulp.task('scripts', function(){
     return gulp.src([
-            path.join(conf.paths.src, '*.js'),
-            path.join('!' + conf.paths.src, '*.spec.js'),
-            path.join('!' + conf.paths.src, '*.mock.js')
-        ])
+            path.join(conf.paths.src, 'permissions.js'),
+            path.join(conf.paths.src, 'permissions.exceptions.js'),
+            path.join(conf.paths.src, 'permissions.factory.js'),
+            path.join(conf.paths.src, 'permissions.service.js'),
+        ], { base:conf.paths.src })
         .pipe($.concat('angular-route-permission.js'))
         .pipe(gulp.dest(conf.paths.dist))
         .pipe($.rename('angular-route-permission.js'))
+        .pipe($.ngAnnotate())
         .pipe($.uglify())
         .pipe(gulp.dest(conf.paths.dist));
 });
