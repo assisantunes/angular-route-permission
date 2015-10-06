@@ -1,0 +1,7 @@
+{
+  "name": "angular-route-permission",
+  "version": "1.0.0",
+  "description": "Handler the permissions between the angular routes",
+  "main": "dist/angular-route-permission.js",
+  "dependencies": {}
+}
