@@ -1,6 +1,6 @@
 {
   "name": "angular-route-permission",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Handler the permissions between the angular routes",
   "author": "Assis Antunes",
   "license": "ISC",
