@@ -69,9 +69,6 @@
                 try{ url = arguments[1].url; }catch(err){}
             }
 
-            // Only to test the history in the browser
-            window.document.title = url;
-
             console.log('[ARoutePermission]', 'route successfully changed', url );
         }
         $rootScope.$on('$stateChangeSuccess', onSuccess);
