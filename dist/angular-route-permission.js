@@ -233,9 +233,11 @@
 
                 // Check ui.routes
                 if($state){
+                    var $urlMatcherFactory = $injector.get('$urlMatcherFactory');
                     var routes = $state.get();
                     for(var i in routes){
-                        if(routes[i].url == path){
+                        var what = $urlMatcherFactory.compile(routes[i].url);
+                        if(what.regexp && path.match(what.regexp)){
                             return wrapperRoute(routes[i], url);
                         }
                     }
