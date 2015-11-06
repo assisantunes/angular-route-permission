@@ -23,7 +23,7 @@ gulp.task('scripts', function(){
         .pipe(gulp.dest(conf.paths.dist))
         .pipe($.rename('angular-route-permission.js'))
         .pipe($.ngAnnotate())
-        // .pipe($.uglify())
+        .pipe($.uglify())
         .pipe(gulp.dest(conf.paths.dist));
 });
 
