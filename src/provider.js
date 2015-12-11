@@ -66,8 +66,9 @@
          * to the ARoutePermission that the permission is ready to run again
          */
         this.completed = function (status, fallback){
-            if(!$rootScope.$broadcast('$$arp__onRedirectResult', status).defaultPrevented)
-                fallback();
+            if(!$rootScope.$broadcast('$$arp__onRedirectResult', status).defaultPrevented){
+                if(typeof fallback == 'function') fallback();
+            }
         }
 
         /**
