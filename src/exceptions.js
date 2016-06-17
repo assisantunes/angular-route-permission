@@ -67,11 +67,15 @@
         /**
          * [NotAllowException]
          */
-        function NotAllowException(){}
+        function NotAllowException(redirect_to_if_first_route){
+          // Default for redirect_to_if_first_route is false
+          this.redirect_to_if_first_route = redirect_to_if_first_route !== undefined ? redirect_to_if_first_route : false;
+        }
         NotAllowException.prototype = angular.extend({}, defaultExceptionPrototype, {
             name:'NotAllowException',
             $$do:function(){
-                if(ARoutePermission.$$is_first_route) ARoutePermission.$$redirectTo('/');
+                if(this.redirect_to_if_first_route && ARoutePermission.$$is_first_route)
+                  ARoutePermission.$$redirectTo(this.redirect_to_if_first_route);
             }
         });
 
